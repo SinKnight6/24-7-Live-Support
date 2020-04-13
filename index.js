@@ -34,7 +34,7 @@ bot.on('message', async message => {
     if (message.content.startsWith (prefix + "live chat") || (message.content.startsWith (prefix + "Live chat"))) {
       let uEmbed1 = new Discord.MessageEmbed()
       .setColor(0x00FF44)
-      .addField(`_`, `Hello ${message.author.username}`)
+      .setAuthor(`Hello ${message.author.username}`)
       .setTitle("** Please type ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
       message.channel.send({embed: uEmbed1})
       .then(() => {
