@@ -35,7 +35,7 @@ bot.on('message', async message => {
       let uEmbed1 = new Discord.MessageEmbed()
       .setColor(0x00FF44)
       .addField(`_`, `Hello ${message.author.username}`)
-      .setTitle(`** Please type ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**`)
+      .setTitle("** Please type ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
       message.channel.send({embed: uEmbed1})
       .then(() => {
        message.channel.awaitMessages(response => response.content === '!help' || message.channel.awaitMessages(response => response.content === '!Help'),{
