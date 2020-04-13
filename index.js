@@ -34,8 +34,8 @@ bot.on('message', async message => {
     if (message.content.startsWith (prefix + "live chat") || (message.content.startsWith (prefix + "Live chat"))) {
       let uEmbed1 = new Discord.MessageEmbed()
       .setColor(0x00FF44)
-      .setAuthor(`Hello ${message.author.username}`)
-      .setTitle("** Please type ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
+      .setAuthor(`Hello ${message.author.username},`)
+      .setTitle("**Please type ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
       message.channel.send({embed: uEmbed1})
       .then(() => {
        message.channel.awaitMessages(response => response.content === '!help' || message.channel.awaitMessages(response => response.content === '!Help'),{
@@ -53,7 +53,7 @@ bot.on('message', async message => {
           let uEmbed3 = new Discord.MessageEmbed()         
           .setColor(0xFF0000)
           .setTitle(`**${message.author.username}**, Your help request was cancelled`)
-          .addField('**Error**','**You did not say any commands within the time limit!, to summon me again please use ``*live chat`` command.**');
+          .addField('**Error**','**You did not say any commands within the time limit!, to summon me again please use ``!live chat`` command.**');
            message.channel.send({embed: uEmbed3});
          });
      });
