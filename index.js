@@ -50,6 +50,7 @@ bot.on('message', async message => {
          })
          .catch(() => {
           let uEmbed3 = new Discord.MessageEmbed()
+          message.channel.send(`${message.author}`)
           .setColor(0xFF0000)
           .setTitle(`Your help request was cancelled`)
            .addField('Error','**You did not say any commands within the time limit!, to summon me again please use ``*live support`` command.**');
