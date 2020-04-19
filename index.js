@@ -31,7 +31,7 @@ bot.on('message', async message => {
 
 // Brealk 
 
-    if (message.content.toLowerCase === prefix + "live chat") {
+    if (message.content.toLowerCase === (prefix + "live chat")) {
       let uEmbed1 = new Discord.MessageEmbed()
       .setColor(0x00FF44)
       .setAuthor(`Hello ${message.author.username},`)
