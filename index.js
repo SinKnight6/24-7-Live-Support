@@ -36,8 +36,8 @@ bot.on('message', async message => {
       .setColor(0x00FF44)
       .setAuthor(`Hello ${message.author.username},`)
       .setTitle("**Please type, ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
-      message.delete (1000);
       message.channel.send({embed: uEmbed1}).then(d_message => {d_message.delete(120000); })
+      message.delete (1000)
       .then(() => {
        message.channel.awaitMessages(response => response.content === '!help' || message.channel.awaitMessages(response => response.content === '!Help'),{
          max: 1,
