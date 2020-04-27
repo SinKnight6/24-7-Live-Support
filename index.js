@@ -36,11 +36,11 @@ bot.on('message', async message => {
       .setColor(0x00FF44)
       .setAuthor(`Hello ${message.author.username},`)
       .setTitle("**Please type, ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
+      message.channel.send({embed: uEmbed1})
       .then(sentMessage => sentMessage.delete({ timeout: 120000 })
       .catch(error => {
 				// Handler
-			}));
-      message.channel.send({embed: uEmbed1})
+			}))
       .then(() => {
        message.channel.awaitMessages(response => response.content === '!help' || message.channel.awaitMessages(response => response.content === '!Help'),{
          max: 1,
@@ -51,11 +51,11 @@ bot.on('message', async message => {
         let uEmbed2 = new Discord.MessageEmbed()
         .setColor(0x001AFF)
          .setTitle(`**${message.author.username}, Another bot has sent you a message Please check your PM (private messages) for: ${collected.first().content}**`)
-         .then(sentMessage => sentMessage.delete({ timeout: 600000 })
+         message.channel.send({embed: uEmbed2})
+         .then(sentMessage => sentMessage.delete({ timeout: 120000 })
       .catch(error => {
 				// Handler
 			}));
-         message.channel.send({embed: uEmbed2})
          })
          .catch(() => {
           let uEmbed3 = new Discord.MessageEmbed()         
