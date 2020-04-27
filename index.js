@@ -36,11 +36,8 @@ bot.on('message', async message => {
       .setColor(0x00FF44)
       .setAuthor(`Hello ${message.author.username},`)
       .setTitle("**Please type, ``!help`` to get started. This will await and will be cancelled in 2 minutes if you dont use a command.**")
-      message.channel.send({embed: uEmbed1})
-      .then(sentMessage => sentMessage.delete({ timeout: 120000 })
-      .catch(error => {
-				// Handler
-			}))
+      message.delete (1000);
+      message.channel.send({embed: uEmbed1}).then(d_message => {d_message.delete(120000); })
       .then(() => {
        message.channel.awaitMessages(response => response.content === '!help' || message.channel.awaitMessages(response => response.content === '!Help'),{
          max: 1,
@@ -50,18 +47,14 @@ bot.on('message', async message => {
        .then((collected) => {
         let uEmbed2 = new Discord.MessageEmbed()
         .setColor(0x001AFF)
-         .setTitle(`**${message.author.username}, Another bot has sent you a message Please check your PM (private messages) for: ${collected.first().content}**`)
-         message.channel.send({embed: uEmbed2})
-         .then(sentMessage => sentMessage.delete({ timeout: 120000 })
-      .catch(error => {
-				// Handler
-			}));
+         .setTitle(`**${message.author.username}, Another bot has sent you a message Please check your PM (private messages) for: ${collected.first().content}**`);
+         message.channel.send({embed: uEmbed2});
          })
          .catch(() => {
           let uEmbed3 = new Discord.MessageEmbed()         
           .setColor(0xFF0000)
           .setTitle(`**${message.author.username}**, Your help request was cancelled`)
-          .addField('**Error**','**You did not say any commands within the time limit!, to summon me again please use, ``!live chat`` command.**');
+          .addField('**Error**','**You did not say any commands within the time limit!, to summon me again please use,  ``!live chat`` command.**');
            message.channel.send({embed: uEmbed3})
            .then(sentMessage => sentMessage.delete({ timeout: 600000
            }))
